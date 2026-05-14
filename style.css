@@ -1,6 +1,6 @@
 :root {
     --primary-color: #1a252c;
-    --secondary-color: #e67e22;
+    --secondary-color: #0078d7; /* Ein seriöses Tech-Blau */
     --text-color: #2c3e50;
     --bg-color: #f4f6f7;
     --white: #ffffff;
@@ -90,7 +90,7 @@ main {
 }
 
 .buy-button:hover {
-    background-color: #d35400;
+    background-color: #005a9e;
 }
 
 #features {

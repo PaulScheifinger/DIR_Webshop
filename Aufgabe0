@@ -1,0 +1,29 @@
+# Aufgabe 0 - Vorbereitung
+
+## 1. Definition des Softwareprodukts
+**Produktname:** PrivaSort
+**Kategorie:** Desktop-Software / Prosumer-Anwendung
+
+**Funktionen der Anwendung:**
+*   **Lokale Gesichtserkennung:** Identifikation und Gruppierung von Personen in Fotos und Videos mittels lokaler KI-Modelle. Es findet zu keinem Zeitpunkt ein Upload biometrischer Daten in eine Cloud statt.
+*   **Metadaten-Analyse:** Automatisiertes Auslesen und Sortieren nach Dateinamen, EXIF-Daten (Kameramodell, GPS-Koordinaten, Aufnahmedatum) und bestehenden Namen der Überordner.
+*   **Ordnerstruktur-Management:** Physikalisches oder virtuelles Umstrukturieren von chaotischen lokalen Freigaben und Dateiablagen in logische, chronologische Hierarchien.
+*   **Duplikat-Erkennung:** Byte-genaues Aufspüren und Bereinigen von redundanten Mediendateien über verschiedene lokale Laufwerke und Netzwerkfreigaben hinweg.
+
+**Zielgruppe:**
+*   Hobby- und Profifotografen mit großen, unübersichtlichen Bildarchiven.
+*   Familien, die ihre digitalen Erinnerungen (Fotos & Videos) lokal sichern und sortieren möchten.
+*   Datenschutzbewusste Anwender und Homelab-Betreiber, die externe Cloud-Dienste aus Gründen der Privatsphäre konsequent ablehnen.
+
+## 2. Definition des Unternehmens
+*   **Unternehmensname:** PrivaSort Systems FlexKapG
+*   **Standort:** Wien, Österreich
+*   **Anzahl der Mitarbeiter:** 3 (Gründerteam bestehend aus Backend-Entwicklung, KI-Integration und UI/UX-Design)
+
+## 3. Definition des Geschäftsmodells
+**Modell:** Einmalverkauf (Lifetime-Lizenz) für 89,00 EUR.
+
+**Begründung & Ausführung:**
+Das Produkt richtet sich explizit an Nutzer, die unabhängig von wiederkehrenden Abonnements (SaaS) sein möchten.
+Da die Software vollständig offline und lokal auf der Hardware des Nutzers ausgeführt wird, entstehen dem Unternehmen nach dem Kauf keine laufenden Server-, Hosting- oder API-Kosten für die Datenverarbeitung.
+Der Einmalpreis refinanziert die initialen Entwicklungskosten der proprietären KI-Modelle und gewährt dem Käufer dauerhafte, uneingeschränkte Nutzungsrechte für die erworbene Hauptversion.
