@@ -8,65 +8,65 @@
     <style>
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
         :root{
-            --bg:#0d1421;--surf:#182236;--surf2:#1f2d4a;
-            --acc:#4f8ef7;--acc2:#6fa3ff;--grn:#00c896;
-            --txt:#e8edf5;--mut:#8899b4;--bdr:#253352;
+            --bg:#08031a;--surf:#100728;--surf2:#1a0d3d;
+            --acc:#6d28d9;--acc2:#7c3aed;--cyan:#06b6d4;--cyan2:#22d3ee;
+            --txt:#f0eeff;--mut:#9a8fc4;--bdr:#2d1f5e;
             --r:12px;
             --font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
         }
         .skip-link{position:absolute;top:-100%;left:1rem;background:var(--acc);color:#fff;padding:.5rem 1rem;border-radius:8px;text-decoration:none;font-weight:700;z-index:9999;transition:top .2s}
         .skip-link:focus{top:1rem}
         body{background:var(--bg);color:var(--txt);font-family:var(--font);line-height:1.65;font-size:1rem}
-        :focus-visible{outline:3px solid var(--acc);outline-offset:3px;border-radius:4px}
+        :focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:4px}
         h1{font-size:clamp(1.9rem,5vw,3.4rem);font-weight:800;line-height:1.1}
         h2{font-size:clamp(1.4rem,3vw,2.1rem);font-weight:700;line-height:1.2}
         h3{font-size:1.1rem;font-weight:600}
         p{color:var(--mut);margin-bottom:.9rem}
-        a{color:var(--acc);text-decoration:underline}
-        a:hover{color:var(--acc2)}
+        a{color:var(--cyan);text-decoration:underline}
+        a:hover{color:var(--cyan2)}
         strong{color:var(--txt)}
         code{background:var(--surf2);padding:.1rem .35rem;border-radius:4px;font-size:.85em}
         ul,ol{margin:0 0 .9rem 1.4rem}
         li{color:var(--mut);margin-bottom:.3rem}
         .container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
         .sec{padding:4.5rem 0}
-        .sec-sm{padding:3rem 0}
 
         /* NAV */
-        header{background:rgba(13,20,33,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:100}
-        nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.5rem;max-width:1100px;margin:0 auto;gap:1rem}
-        .logo{display:flex;align-items:center;gap:.55rem;background:none;border:none;color:var(--txt);font-size:1.25rem;font-weight:800;cursor:pointer;text-decoration:none}
-        .logo-acc{color:var(--acc)}
-        .nav-links{display:flex;align-items:center;gap:1.4rem;list-style:none}
-        .nav-links a{color:var(--mut);text-decoration:none;font-size:.88rem;font-weight:500;transition:color .2s}
-        .nav-links a:hover{color:var(--txt)}
-        .btn{display:inline-flex;align-items:center;gap:.45rem;padding:.7rem 1.35rem;border-radius:8px;font-weight:600;font-size:.9rem;text-decoration:none;cursor:pointer;border:none;font-family:var(--font);transition:all .2s}
-        .btn-p{background:var(--acc);color:#fff}
-        .btn-p:hover{background:var(--acc2);color:#fff;transform:translateY(-1px)}
+        header{background:rgba(8,3,26,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--bdr);position:sticky;top:0;z-index:100}
+        nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.5rem;max-width:1100px;margin:0 auto;gap:1rem}
+        .logo-btn{display:flex;align-items:center;gap:.6rem;background:none;border:none;color:var(--txt);font-size:1.2rem;font-weight:800;cursor:pointer;text-decoration:none;padding:0}
+        .logo-acc{color:var(--cyan)}
+        .nav-links{display:flex;align-items:center;gap:1.2rem;list-style:none}
+        .nav-links a{color:var(--mut);text-decoration:none;font-size:.87rem;font-weight:500;transition:color .2s;white-space:nowrap}
+        .nav-links a:hover,.nav-links a.active{color:var(--txt)}
+        .btn{display:inline-flex;align-items:center;gap:.45rem;padding:.65rem 1.25rem;border-radius:8px;font-weight:600;font-size:.88rem;text-decoration:none;cursor:pointer;border:none;font-family:var(--font);transition:all .2s}
+        .btn-p{background:linear-gradient(135deg,var(--acc),var(--cyan));color:#fff}
+        .btn-p:hover{opacity:.88;transform:translateY(-1px)}
         .btn-o{background:transparent;color:var(--txt);border:1.5px solid var(--bdr)}
-        .btn-o:hover{border-color:var(--acc);color:var(--acc)}
-        .btn-sm{padding:.45rem 1rem;font-size:.82rem}
+        .btn-o:hover{border-color:var(--cyan);color:var(--cyan)}
+        .btn-sm{padding:.4rem .9rem;font-size:.8rem}
 
         /* PAGE ROUTER */
         .page{display:none}.page.active{display:block}
 
         /* HERO */
-        .hero{padding:5.5rem 0 4rem;text-align:center}
-        .badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(79,142,247,.13);border:1px solid rgba(79,142,247,.3);color:var(--acc);padding:.3rem .75rem;border-radius:100px;font-size:.82rem;font-weight:600;margin-bottom:1.4rem}
+        .hero{padding:5.5rem 0 4rem;text-align:center;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(109,40,217,.18),transparent 70%);pointer-events:none}
+        .badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.3);color:var(--cyan);padding:.3rem .8rem;border-radius:100px;font-size:.8rem;font-weight:600;margin-bottom:1.4rem}
         .hero h1{margin-bottom:1.1rem}
-        .hero em{color:var(--acc);font-style:normal}
-        .hero-sub{font-size:1.15rem;color:var(--mut);max-width:600px;margin:0 auto 2.2rem}
+        .hero em{background:linear-gradient(135deg,var(--acc2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
+        .hero-sub{font-size:1.1rem;color:var(--mut);max-width:600px;margin:0 auto 2.2rem}
         .hero-ctas{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
 
         /* TRUST */
-        .trust{border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:1.4rem 0;background:var(--surf)}
-        .trust-list{display:flex;justify-content:center;gap:2.2rem;flex-wrap:wrap;list-style:none}
-        .trust-item{display:flex;align-items:center;gap:.45rem;font-size:.88rem;font-weight:600;color:var(--txt)}
-        .trust-item svg{color:var(--grn)}
+        .trust{border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:1.3rem 0;background:var(--surf)}
+        .trust-list{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;list-style:none}
+        .trust-item{display:flex;align-items:center;gap:.45rem;font-size:.87rem;font-weight:600;color:var(--txt)}
+        .trust-item svg{color:var(--cyan)}
 
         /* SECTION HEADER */
         .sh{text-align:center;margin-bottom:.75rem}
-        .tag{display:inline-block;background:rgba(0,200,150,.12);color:var(--grn);border:1px solid rgba(0,200,150,.28);padding:.18rem .65rem;border-radius:100px;font-size:.78rem;font-weight:600;margin-bottom:.65rem;text-transform:uppercase;letter-spacing:.06em}
+        .tag{display:inline-block;background:rgba(6,182,212,.1);color:var(--cyan);border:1px solid rgba(6,182,212,.25);padding:.18rem .65rem;border-radius:100px;font-size:.77rem;font-weight:600;margin-bottom:.65rem;text-transform:uppercase;letter-spacing:.07em}
         .sh p{max-width:560px;margin:.5rem auto 0}
 
         /* CARDS */
@@ -75,19 +75,22 @@
         .grid2{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
         .card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:1.8rem;transition:border-color .2s,transform .2s}
         .card:hover{border-color:var(--acc);transform:translateY(-3px)}
-        .icon-box{width:46px;height:46px;background:rgba(79,142,247,.13);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;color:var(--acc)}
+        .icon-box{width:46px;height:46px;background:rgba(109,40,217,.18);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:.9rem;color:var(--cyan)}
         .card h3{margin-bottom:.4rem}
 
         /* PRICING */
-        .price-card{background:var(--surf);border:2px solid var(--acc);border-radius:var(--r);padding:2.8rem;max-width:440px;margin:2.8rem auto 0;text-align:center}
+        .price-card{background:var(--surf);border:2px solid transparent;border-radius:var(--r);padding:2.8rem;max-width:460px;margin:2.8rem auto 0;text-align:center;position:relative}
+        .price-card::before{content:'';position:absolute;inset:-2px;border-radius:calc(var(--r)+ 2px);background:linear-gradient(135deg,var(--acc),var(--cyan));z-index:-1}
+        .price-card::after{content:'';position:absolute;inset:0;border-radius:var(--r);background:var(--surf);z-index:-1}
         .price-num{font-size:3.3rem;font-weight:900;color:var(--txt);line-height:1}
         .price-sub{color:var(--mut);margin:.45rem 0 1.8rem}
         .price-list{list-style:none;text-align:left;margin:0 0 1.8rem;padding:0}
         .price-list li{display:flex;align-items:center;gap:.45rem;padding:.35rem 0;color:var(--txt);font-size:.92rem}
-        .price-list li svg{color:var(--grn);flex-shrink:0}
+        .price-list li svg{color:var(--cyan);flex-shrink:0}
 
         /* PAGE HERO */
-        .ph{background:var(--surf);border-bottom:1px solid var(--bdr);padding:2.8rem 0}
+        .ph{background:var(--surf);border-bottom:1px solid var(--bdr);padding:2.8rem 0;position:relative;overflow:hidden}
+        .ph::after{content:'';position:absolute;top:0;right:0;width:300px;height:100%;background:radial-gradient(ellipse at right,rgba(109,40,217,.12),transparent 70%);pointer-events:none}
         .ph h1{font-size:clamp(1.7rem,3.5vw,2.6rem)}
 
         /* PROSE */
@@ -97,50 +100,56 @@
         .prose p,.prose li{color:var(--mut)}
 
         /* BRAND */
-        .brand-preview{background:var(--bg);border-radius:8px;padding:2rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem;min-height:100px}
+        .brand-preview{background:var(--bg);border:1px solid var(--bdr);border-radius:8px;padding:2rem;display:flex;align-items:center;justify-content:center;margin-bottom:1.4rem;min-height:100px}
 
         /* TEAM */
-        .avatar{width:72px;height:72px;border-radius:50%;background:var(--surf2);margin:0 auto .9rem;display:flex;align-items:center;justify-content:center;color:var(--acc)}
+        .avatar{width:72px;height:72px;border-radius:50%;background:var(--surf2);margin:0 auto .9rem;display:flex;align-items:center;justify-content:center;color:var(--cyan)}
         .team-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:1.8rem;text-align:center}
 
         /* TABLE */
         table{width:100%;border-collapse:collapse;margin:1.3rem 0;font-size:.88rem}
-        th{background:var(--surf2);padding:.65rem .9rem;text-align:left;font-size:.78rem;color:var(--mut);text-transform:uppercase;letter-spacing:.05em}
+        th{background:var(--surf2);padding:.65rem .9rem;text-align:left;font-size:.77rem;color:var(--mut);text-transform:uppercase;letter-spacing:.05em}
         td{padding:.65rem .9rem;border-bottom:1px solid var(--bdr);color:var(--mut)}
         td strong{color:var(--txt)}
 
         /* NOTICE */
         .notice{border-radius:8px;padding:.9rem 1.1rem;margin:1.3rem 0;font-size:.9rem}
-        .ni{background:rgba(79,142,247,.1);border-left:3px solid var(--acc);color:var(--txt)}
-        .ng{background:rgba(0,200,150,.1);border-left:3px solid var(--grn);color:var(--txt)}
+        .ni{background:rgba(109,40,217,.12);border-left:3px solid var(--acc);color:var(--txt)}
+        .ng{background:rgba(6,182,212,.1);border-left:3px solid var(--cyan);color:var(--txt)}
 
         /* FORM */
         .fg{margin-bottom:1.3rem}
         .fg label{display:block;font-weight:500;margin-bottom:.35rem;font-size:.88rem;color:var(--txt)}
         .fg input,.fg textarea,.fg select{width:100%;background:var(--surf);border:1px solid var(--bdr);border-radius:8px;padding:.7rem .95rem;color:var(--txt);font-family:var(--font);font-size:.95rem;transition:border-color .2s}
-        .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--acc);outline:none}
+        .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--cyan);outline:none}
         .fg textarea{resize:vertical;min-height:130px}
         .fg select option{background:var(--surf2)}
 
         /* FOOTER */
         footer{background:var(--surf);border-top:1px solid var(--bdr);padding:2.8rem 0 1.8rem}
-        .foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2rem;margin-bottom:2rem}
-        .foot-col h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);margin-bottom:.9rem}
+        .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2rem}
+        .foot-brand p{font-size:.84rem;margin:.3rem 0 0}
+        .foot-col h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);margin-bottom:.9rem;margin-top:0}
         .foot-col ul{list-style:none;padding:0;margin:0}
-        .foot-col ul li{margin-bottom:.4rem}
-        .foot-col ul li a{color:var(--mut);text-decoration:none;font-size:.88rem}
-        .foot-col ul li a:hover{color:var(--txt)}
-        .foot-bot{border-top:1px solid var(--bdr);padding-top:1.3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.7rem;font-size:.8rem;color:var(--mut)}
+        .foot-col ul li{margin-bottom:.45rem}
+        .foot-col ul li a{color:var(--mut);text-decoration:none;font-size:.87rem;transition:color .2s}
+        .foot-col ul li a:hover{color:var(--cyan)}
+        .foot-bot{border-top:1px solid var(--bdr);padding-top:1.3rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.7rem;font-size:.78rem;color:var(--mut)}
 
         /* COOKIE */
-        #cookie{position:fixed;bottom:0;left:0;right:0;background:var(--surf);border-top:1px solid var(--bdr);padding:1.1rem 1.5rem;z-index:200;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
-        #cookie p{flex:1;margin:0;font-size:.87rem;color:var(--mut);min-width:240px}
+        #cookie{position:fixed;bottom:0;left:0;right:0;background:var(--surf);border-top:1px solid var(--bdr);padding:1rem 1.5rem;z-index:200;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+        #cookie p{flex:1;margin:0;font-size:.86rem;color:var(--mut);min-width:240px}
         .cookie-btns{display:flex;gap:.5rem;flex-wrap:wrap}
 
+        /* LOGO SVG */
+        .logo-img{width:34px;height:34px;flex-shrink:0}
+
+        @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
         @media(max-width:760px){
             .nav-links{display:none}
             .grid2{grid-template-columns:1fr}
             .hero{padding:4rem 0 3rem}
+            .foot-grid{grid-template-columns:1fr}
         }
     </style>
 </head>
@@ -151,7 +160,7 @@
 <!-- Cookie Banner -->
 <div id="cookie" role="alert" aria-live="polite">
     <p>Wir verwenden technisch notwendige Cookies. Details in unserer
-        <button onclick="nav('privacy')" style="background:none;border:none;color:var(--acc);cursor:pointer;text-decoration:underline;padding:0;font-size:inherit;">Datenschutzerklärung</button>.
+        <button onclick="goTo('privacy')" style="background:none;border:none;color:var(--cyan);cursor:pointer;text-decoration:underline;padding:0;font-size:inherit;">Datenschutzerklärung</button>.
     </p>
     <div class="cookie-btns">
         <button class="btn btn-o btn-sm" onclick="closeCookie()">Nur notwendige</button>
@@ -162,20 +171,20 @@
 <!-- Header -->
 <header role="banner">
     <nav role="navigation" aria-label="Hauptnavigation">
-        <button class="logo" onclick="nav('home')" aria-label="PrivaSort – zur Startseite">
-            <svg width="26" height="26" viewBox="0 0 28 28" fill="none" aria-hidden="true" focusable="false">
-                <path d="M14 2L4 7v7c0 5.5 4.3 10.7 10 12 5.7-1.3 10-6.5 10-12V7L14 2z" fill="#4f8ef7"/>
-                <path d="M10 14l3 3 5-5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <button class="logo-btn" onclick="goTo('home')" aria-label="PrivaSort – zur Startseite">
+            <img src="logo.png" alt="PrivaSort Logo" class="logo-img" style="width:34px;height:auto;">
             Priva<span class="logo-acc">Sort</span>
         </button>
+
         <ul class="nav-links" role="list">
-            <li><a href="#" onclick="nav('home');scrollTo('features');return false;">Funktionen</a></li>
-            <li><a href="#" onclick="nav('home');scrollTo('pricing');return false;">Preise</a></li>
-            <li><a href="#" onclick="nav('about');return false;">Über uns</a></li>
-            <li><a href="#" onclick="nav('contact');return false;">Kontakt</a></li>
+            <li><a href="#" id="nav-home"    onclick="goTo('home');return false;">Home</a></li>
+            <li><a href="#" id="nav-about"   onclick="goTo('about');return false;">Über uns</a></li>
+            <li><a href="#" id="nav-license" onclick="goTo('license');return false;">Lizenz</a></li>
+            <li><a href="#" id="nav-privacy" onclick="goTo('privacy');return false;">Datenschutz</a></li>
+            <li><a href="#" id="nav-impressum" onclick="goTo('impressum');return false;">Impressum</a></li>
         </ul>
-        <button class="btn btn-p" onclick="nav('home');scrollTo('pricing');" aria-label="PrivaSort kaufen, einmalig 89 Euro">
+
+        <button class="btn btn-p" onclick="goTo('home');jumpTo('pricing');" aria-label="PrivaSort kaufen, einmalig 89 Euro">
             Jetzt kaufen – 89&nbsp;€
         </button>
     </nav>
@@ -189,17 +198,17 @@
         <section class="hero" aria-labelledby="h-hero">
             <div class="container">
                 <div class="badge">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     100% lokal – Keine Cloud
                 </div>
                 <h1 id="h-hero">Ihre Fotos. Ihre Daten.<br><em>Ihre Kontrolle.</em></h1>
                 <p class="hero-sub">PrivaSort sortiert, gruppiert und verwaltet Ihr gesamtes Medienarchiv mit lokaler KI – kein Cloud-Upload, kein Abo, kein Datenschutzrisiko.</p>
                 <div class="hero-ctas">
-                    <button class="btn btn-p" onclick="scrollTo('pricing')" aria-label="PrivaSort für einmalig 89 Euro kaufen">
+                    <button class="btn btn-p" onclick="jumpTo('pricing')" aria-label="PrivaSort für einmalig 89 Euro kaufen">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
                         Jetzt kaufen – 89&nbsp;€
                     </button>
-                    <button class="btn btn-o" onclick="scrollTo('features')">
+                    <button class="btn btn-o" onclick="jumpTo('features')">
                         Funktionen entdecken
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </button>
@@ -210,10 +219,10 @@
         <div class="trust" aria-label="Produktvorteile im Überblick">
             <div class="container">
                 <ul class="trust-list" role="list">
-                    <li class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Keine Cloud-Uploads</li>
-                    <li class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Einmalige Zahlung</li>
-                    <li class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Vollständig offline</li>
-                    <li class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Made in Austria 🇦🇹</li>
+                    <li class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Keine Cloud-Uploads</li>
+                    <li class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Einmalige Zahlung</li>
+                    <li class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Vollständig offline</li>
+                    <li class="trust-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Made in Austria 🇦🇹</li>
                 </ul>
             </div>
         </div>
@@ -242,7 +251,7 @@
                         <p>Physikalische oder virtuelle Umstrukturierung chaotischer Ablagen in logische, chronologische Hierarchien.</p>
                     </article>
                     <article class="card">
-                        <div class="icon-box" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="8" width="8" height="8" rx="1"/><rect x="14" y="8" width="8" height="8" rx="1"/><path d="M6 8V6a6 6 0 0112 0v2"/><line x1="12" y1="12" x2="12" y2="12.5"/></svg></div>
+                        <div class="icon-box" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="8" width="8" height="8" rx="1"/><rect x="14" y="8" width="8" height="8" rx="1"/><path d="M6 8V6a6 6 0 0112 0v2"/></svg></div>
                         <h3>Duplikat-Erkennung</h3>
                         <p>Byte-genaues Aufspüren redundanter Mediendateien über mehrere lokale Laufwerke und Netzwerkfreigaben.</p>
                     </article>
@@ -296,7 +305,9 @@
                         <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>E-Mail-Support (3 Monate inklusive)</li>
                         <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Installation auf bis zu 3 eigenen Geräten</li>
                     </ul>
-                    <button class="btn btn-p" style="width:100%;justify-content:center;padding:.95rem;font-size:1rem;" onclick="alert('Checkout-System nicht verfügbar – Demo-Modus.\nIn der Produktionsversion wird hier zur gesicherten Zahlungsseite weitergeleitet.')" aria-label="PrivaSort jetzt kaufen, einmalig 89 Euro">
+                    <button class="btn btn-p" style="width:100%;justify-content:center;padding:.95rem;font-size:1rem;"
+                            onclick="alert('🛒 Checkout\n\nVielen Dank für Ihr Interesse!\n\nIn der Produktionsversion werden Sie hier zu unserer sicheren Zahlungsseite weitergeleitet.\nNach Zahlungseingang erhalten Sie den Download-Link und Ihre Lizenz per E-Mail.\n\nPreis: 89,00 € (inkl. 20 % MwSt.)')"
+                            aria-label="PrivaSort jetzt kaufen, einmalig 89 Euro">
                         Jetzt kaufen – 89&nbsp;€ (einmalig)
                     </button>
                     <p style="font-size:.78rem;margin-top:.9rem;color:var(--mut);margin-bottom:0">inkl. 20&nbsp;% MwSt. · Sofort-Download nach Zahlungseingang · Rechnung per E-Mail</p>
@@ -316,7 +327,7 @@
             </div>
         </div>
 
-        <section class="sec" aria-labelledby="h-team">
+        <section class="sec" id="about-team" aria-labelledby="h-team">
             <div class="container">
                 <h2 id="h-team" style="margin-bottom:.5rem">Das Team</h2>
                 <p>Gegründet 2026 in Wien. Drei Spezialisten, eine Vision.</p>
@@ -328,83 +339,72 @@
             </div>
         </section>
 
-        <section class="sec" style="padding-top:0" aria-labelledby="h-brands">
+        <section class="sec" style="padding-top:0" id="about-brands" aria-labelledby="h-brands">
             <div class="container">
                 <div class="tag">Markenrecht</div>
                 <h2 id="h-brands" style="margin-bottom:.5rem">Unsere Marken</h2>
                 <p>Drei eigenständige Markenformen wurden entwickelt und einer Kollisionsrecherche in <strong>EUIPO&nbsp;eSearch</strong>, <strong>TMview</strong> und <strong>Madrid&nbsp;Monitor</strong> unterzogen. Zum Zeitpunkt der Erstellung wurden keine konfligierenden Einträge identifiziert.</p>
                 <div class="grid3" style="align-items:start">
-
-                    <!-- Marke 1: Wort-Bildmarke -->
-                    <div class="card" style="padding:1.8rem">
+                    <div class="card">
                         <div class="brand-preview">
-                            <div style="display:flex;align-items:center;gap:.55rem">
-                                <svg width="38" height="38" viewBox="0 0 28 28" fill="none" role="img" aria-label="PrivaSort Wort-Bildmarke: Schutzschild mit Haken und Schriftzug">
-                                    <path d="M14 2L4 7v7c0 5.5 4.3 10.7 10 12 5.7-1.3 10-6.5 10-12V7L14 2z" fill="#4f8ef7"/>
-                                    <path d="M10 14l3 3 5-5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                <span style="font-size:1.7rem;font-weight:800;color:var(--txt)">Priva<span style="color:#4f8ef7">Sort</span></span>
+                            <div style="display:flex;align-items:center;gap:.6rem">
+                                <img src="logo.png" alt="PrivaSort Logo" class="logo-img" style="width:34px;height:auto;">
+                                <span style="font-size:1.6rem;font-weight:800;color:var(--txt)">Priva<span style="color:var(--cyan)">Sort</span></span>
                             </div>
                         </div>
                         <h3>Markenform 1: Wort-Bildmarke</h3>
-                        <p>Kombination aus dem Schriftzug „PrivaSort" und dem Schutzschild-Bildzeichen. „Priva" leitet sich von lat. <em>privatus</em> (= privat, persönlich) ab; „Sort" steht für die Kernfunktion der Sortierung. Die Farbgebung (Blau + Weiß) signalisiert Vertrauen und Sicherheit.</p>
+                        <p>Kombination aus dem Schriftzug „PrivaSort" und dem KI-Schild. „Priva" leitet sich von lat. <em>privatus</em> ab; „Sort" steht für die Kernfunktion. Das KI-Gehirn symbolisiert lokale Intelligenz, der Schild Datenschutz.</p>
                         <table><tr><th>Nizza-Klasse</th><th>Beschreibung</th></tr>
                             <tr><td><strong>Klasse 9</strong></td><td>Computersoftware, KI-Software, Bildverwaltungssoftware</td></tr>
                             <tr><td><strong>Klasse 42</strong></td><td>Softwareentwicklung, Software-as-Download, KI-Dienste</td></tr></table>
                     </div>
 
-                    <!-- Marke 2: Bildmarke -->
-                    <div class="card" style="padding:1.8rem">
+                    <div class="card">
                         <div class="brand-preview">
-                            <svg width="68" height="68" viewBox="0 0 28 28" fill="none" role="img" aria-label="PrivaSort Bildmarke: Schutzschild mit Haken ohne Schriftzug">
-                                <path d="M14 2L4 7v7c0 5.5 4.3 10.7 10 12 5.7-1.3 10-6.5 10-12V7L14 2z" fill="#4f8ef7"/>
-                                <path d="M10 14l3 3 5-5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                            <img src="logo.png" alt="PrivaSort Logo" class="logo-img" style="width:34px;height:auto;">
                         </div>
                         <h3>Markenform 2: Bildmarke</h3>
-                        <p>Der stilisierte Schutzschild mit integriertem Haken als eigenständiges Bildzeichen, ohne Wortbestandteil. Verwendbar als App-Icon, Favicon oder Siegel. Das Schild symbolisiert Schutz; der Haken steht für Vollständigkeit und Korrektheit.</p>
+                        <p>Das KI-Schild als eigenständiges Bildzeichen ohne Wortbestandteil. Verwendbar als App-Icon, Favicon oder Produktsiegel. Schild = Datenschutz; Gehirn-Netzwerk = lokale KI.</p>
                         <table><tr><th>Nizza-Klasse</th><th>Beschreibung</th></tr>
                             <tr><td><strong>Klasse 9</strong></td><td>Computersoftware, Sicherheitssoftware</td></tr>
                             <tr><td><strong>Klasse 42</strong></td><td>IT-Sicherheitsdienstleistungen, Softwareentwicklung</td></tr></table>
                     </div>
 
-                    <!-- Marke 3: Farbmarke -->
-                    <div class="card" style="padding:1.8rem">
+                    <div class="card">
                         <div class="brand-preview" style="flex-direction:column;gap:.7rem">
                             <div style="display:flex;gap:.8rem">
-                                <div style="width:56px;height:56px;border-radius:8px;background:#4f8ef7" role="img" aria-label="Primärfarbe PrivaSort-Blau, Hex-Code 4f8ef7"></div>
-                                <div style="width:56px;height:56px;border-radius:8px;background:#0d1421;border:1px solid #253352" role="img" aria-label="Sekundärfarbe Nachtblau, Hex-Code 0d1421"></div>
-                                <div style="width:56px;height:56px;border-radius:8px;background:#00c896" role="img" aria-label="Akzentfarbe Datenschutzgrün, Hex-Code 00c896"></div>
+                                <div style="width:56px;height:56px;border-radius:8px;background:#6d28d9" role="img" aria-label="Primärfarbe PrivaSort-Violett, Hex 6d28d9"></div>
+                                <div style="width:56px;height:56px;border-radius:8px;background:#06b6d4" role="img" aria-label="Akzentfarbe Cyan, Hex 06b6d4"></div>
+                                <div style="width:56px;height:56px;border-radius:8px;background:#08031a;border:1px solid #2d1f5e" role="img" aria-label="Hintergrundfarbe Tief-Violet-Schwarz, Hex 08031a"></div>
                             </div>
-                            <div style="font-size:.75rem;color:var(--mut)">#4f8ef7 · #0d1421 · #00c896</div>
+                            <div style="font-size:.75rem;color:var(--mut)">#6d28d9 · #06b6d4 · #08031a</div>
                         </div>
                         <h3>Markenform 3: Farbmarke</h3>
-                        <p><strong style="color:#4f8ef7">PrivaSort-Blau (#4f8ef7)</strong> – Primärfarbe, steht für Vertrauen &amp; Technologie. <strong>Nachtblau (#0d1421)</strong> – Hintergrund, symbolisiert Diskretion &amp; Privatsphäre. <strong style="color:#00c896">Datenschutzgrün (#00c896)</strong> – Akzent für Bestätigung &amp; Sicherheit.</p>
+                        <p><strong style="color:#a78bfa">PrivaSort-Violett (#6d28d9)</strong> – KI, Innovation, Vertrauen. <strong style="color:var(--cyan)">Datenschutz-Cyan (#06b6d4)</strong> – Technologie, Klarheit, Sicherheit. <strong>Tief-Nacht (#08031a)</strong> – Diskretion, Privatsphäre.</p>
                         <table><tr><th>Nizza-Klasse</th><th>Beschreibung</th></tr>
                             <tr><td><strong>Klasse 9</strong></td><td>Computersoftware</td></tr>
                             <tr><td><strong>Klasse 35</strong></td><td>Unternehmensidentität, Marketing</td></tr></table>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <section class="sec" style="padding-top:0" aria-labelledby="h-media">
+        <section class="sec" style="padding-top:0" id="about-media" aria-labelledby="h-media">
             <div class="container">
                 <div class="tag">Urheberrecht</div>
                 <h2 id="h-media" style="margin-bottom:.5rem">Verwendete Medien &amp; Lizenzen</h2>
-                <p>Alle auf dieser Website eingesetzten Medien wurden auf ihre Verwertungsrechte geprüft. Es werden ausschließlich eigene Werke oder lizenzfreie Ressourcen verwendet.</p>
+                <p>Alle auf dieser Website eingesetzten Medien wurden auf ihre Verwertungsrechte geprüft.</p>
                 <table aria-label="Übersicht der verwendeten Medien und deren Lizenzen">
-                    <thead><tr><th scope="col">Medium</th><th scope="col">Urheber / Quelle</th><th scope="col">Lizenz</th><th scope="col">Verwendung auf der Website</th></tr></thead>
+                    <thead><tr><th scope="col">Medium</th><th scope="col">Urheber / Quelle</th><th scope="col">Lizenz</th><th scope="col">Verwendung</th></tr></thead>
                     <tbody>
                     <tr><td><strong>Website-Texte</strong></td><td>PrivaSort Systems FlexKapG</td><td>© 2025, eigenes Werk</td><td>Alle Texte und Beschreibungen</td></tr>
-                    <tr><td><strong>SVG-Icons &amp; Logos</strong></td><td>PrivaSort Systems FlexKapG</td><td>© 2025, eigenes Werk</td><td>Navigation, Features, UI-Elemente, Markenzeichen</td></tr>
-                    <tr><td><strong>Schriftarten</strong></td><td>System Font Stack (Apple, Google, Microsoft)</td><td>Systemschriften – keine gesonderte Lizenz erforderlich</td><td>Gesamte Website (ui-sans-serif, Segoe UI, Roboto …)</td></tr>
+                    <tr><td><strong>Marken-Logo (PNG)</strong></td><td>PrivaSort Systems FlexKapG</td><td>© 2025, eigenes Werk</td><td>Header-Logo, Favicon, Markenzeichen</td></tr>
+                    <tr><td><strong>SVG-Icons</strong></td><td>PrivaSort Systems FlexKapG</td><td>© 2025, eigenes Werk</td><td>Navigation, Features, UI-Elemente</td></tr>
+                    <tr><td><strong>Schriftarten</strong></td><td>System Font Stack</td><td>Systemschriften – keine Lizenz erforderlich</td><td>Gesamte Website</td></tr>
                     <tr><td><strong>Farbpalette</strong></td><td>PrivaSort Systems FlexKapG</td><td>© 2025, eigenes Werk</td><td>Gesamtes visuelles Design</td></tr>
-                    <tr><td><strong>Favicon</strong></td><td>PrivaSort Systems FlexKapG</td><td>© 2025, eigenes Werk (SVG)</td><td>Browser-Tab-Icon</td></tr>
                     </tbody>
                 </table>
-                <div class="notice ng">Diese Website verwendet <strong>keine</strong> Bilder, Videos oder Audiodateien von Drittanbietern. Es werden keine externen Fonts, CDNs, Social-Media-Pixel oder Tracking-Dienste eingebunden. Alle visuellen Elemente sind entweder selbst erstellt (SVG) oder nutzen lizenzfreie Systemschriften.</div>
+                <div class="notice ng">Diese Website verwendet <strong>keine</strong> Bilder, Videos oder Audiodateien von Drittanbietern und bindet keine externen CDNs, Tracker oder Social-Media-Pixel ein.</div>
             </div>
         </section>
     </div><!-- /about -->
@@ -426,35 +426,34 @@
             <p>Dieser EULA wird geschlossen zwischen der <strong>PrivaSort Systems FlexKapG</strong>, Musterstraße 1, 1010 Wien (nachfolgend „Lizenzgeber") und der erwerbenden natürlichen oder juristischen Person (nachfolgend „Lizenznehmer"). Gegenstand ist die Desktop-Software „PrivaSort" zur lokalen Verwaltung von Foto- und Videodateien.</p>
 
             <h2>§ 2 Durch den Kauf erworbene Nutzungsrechte</h2>
-            <p>Mit dem Erwerb der Lifetime-Lizenz (89,00 EUR inkl. MwSt.) erhält der Lizenznehmer folgende, nicht übertragbare Rechte:</p>
+            <p>Mit dem Erwerb der Lifetime-Lizenz (89,00 EUR inkl. MwSt.) erhält der Lizenznehmer:</p>
             <ul>
-                <li><strong>Installationsrecht:</strong> Die Software darf auf bis zu 3 Geräten im ausschließlichen Besitz des Lizenznehmers installiert werden.</li>
-                <li><strong>Dauerhaftes Nutzungsrecht:</strong> Die Software darf zeitlich unbegrenzt für private und gewerbliche Zwecke genutzt werden.</li>
-                <li><strong>Update-Recht:</strong> Kostenlose Updates innerhalb der erworbenen Hauptversion (1.x). Upgrades auf neue Hauptversionen können gesondert kostenpflichtig sein.</li>
-                <li><strong>Sicherungskopie:</strong> Eine Backup-Kopie der Software darf für Archivierungszwecke erstellt werden.</li>
+                <li><strong>Installationsrecht:</strong> Bis zu 3 Geräte im ausschließlichen Besitz des Lizenznehmers.</li>
+                <li><strong>Dauerhaftes Nutzungsrecht:</strong> Zeitlich unbegrenzt für private und gewerbliche Zwecke.</li>
+                <li><strong>Update-Recht:</strong> Kostenlose Updates innerhalb der Hauptversion 1.x.</li>
+                <li><strong>Sicherungskopie:</strong> Eine Backup-Kopie für Archivierungszwecke.</li>
             </ul>
 
             <h2>§ 3 Beim Unternehmen verbleibende Rechte</h2>
             <ul>
-                <li>Alle <strong>Urheberrechte</strong> an Quellcode, KI-Modellen, Dokumentation und Begleitmaterialien verbleiben beim Lizenzgeber.</li>
-                <li>Das <strong>Markenrecht</strong> an „PrivaSort", dem Schutzschild-Logo und den Markenfarben verbleibt beim Lizenzgeber.</li>
+                <li>Alle <strong>Urheberrechte</strong> an Quellcode, KI-Modellen und Dokumentation verbleiben beim Lizenzgeber.</li>
+                <li><strong>Markenrechte</strong> an „PrivaSort", dem KI-Schild-Logo und den Markenfarben verbleiben beim Lizenzgeber.</li>
                 <li><strong>Reverse Engineering, Dekompilierung und Disassemblierung</strong> sind untersagt, soweit nicht durch zwingendes Recht gestattet.</li>
                 <li><strong>Weitergabe, Vermietung oder Unterlizenzierung</strong> an Dritte ist nicht gestattet.</li>
-                <li>Der Lizenzgeber behält das Recht zur Weiterentwicklung und kommerziellen Vermarktung neuer Versionen.</li>
             </ul>
 
             <h2>§ 4 Haftungsbeschränkungen</h2>
-            <p><strong>4.1 Datenverlust:</strong> Der Lizenzgeber übernimmt keinerlei Haftung für Datenverluste oder ungewollte Dateiänderungen durch die Nutzung der Software. Der Lizenznehmer ist verpflichtet, vor der Nutzung Datensicherungen anzulegen.</p>
-            <p><strong>4.2 Indirekte Schäden:</strong> Der Lizenzgeber haftet nicht für mittelbare, zufällige oder Folgeschäden, einschließlich entgangener Gewinne oder Betriebsunterbrechungen.</p>
-            <p><strong>4.3 Haftungsobergrenze:</strong> Die Gesamthaftung ist auf den tatsächlich bezahlten Kaufpreis (89,00 EUR) begrenzt.</p>
-            <p><strong>4.4 Kompatibilität:</strong> Keine Garantie für Kompatibilität mit künftigen Betriebssystemversionen oder Hardware-Konfigurationen.</p>
+            <p><strong>4.1 Datenverlust:</strong> Der Lizenzgeber übernimmt keinerlei Haftung für Datenverluste. Der Lizenznehmer ist verpflichtet, vor der Nutzung Datensicherungen anzulegen.</p>
+            <p><strong>4.2 Indirekte Schäden:</strong> Keine Haftung für mittelbare, zufällige oder Folgeschäden einschließlich entgangener Gewinne.</p>
+            <p><strong>4.3 Haftungsobergrenze:</strong> Gesamthaftung begrenzt auf den bezahlten Kaufpreis (89,00 EUR).</p>
+            <p><strong>4.4 Kompatibilität:</strong> Keine Garantie für Kompatibilität mit künftigen Betriebssystemversionen.</p>
             <p><strong>4.5 Zwingende Vorschriften:</strong> Gesetzlich zwingende Haftungsregeln (Vorsatz, grobe Fahrlässigkeit, PHG) bleiben unberührt.</p>
 
             <h2>§ 5 Laufzeit und Kündigung</h2>
-            <p>Der Vertrag läuft auf unbestimmte Zeit. Bei wesentlichem Verstoß kann der Lizenzgeber fristlos kündigen; alle Nutzungsrechte erlöschen; der Lizenznehmer muss alle Installationen löschen.</p>
+            <p>Unbefristeter Vertrag. Bei wesentlichem Verstoß kann der Lizenzgeber fristlos kündigen; alle Nutzungsrechte erlöschen sofort.</p>
 
             <h2>§ 6 Anwendbares Recht und Gerichtsstand</h2>
-            <p>Es gilt österreichisches Recht unter Ausschluss des UN-Kaufrechts (CISG). Ausschließlicher Gerichtsstand ist Wien, Österreich.</p>
+            <p>Österreichisches Recht unter Ausschluss des UN-Kaufrechts (CISG). Ausschließlicher Gerichtsstand: Wien, Österreich.</p>
         </div></div></section>
     </div><!-- /license -->
 
@@ -472,48 +471,44 @@
 
             <h2>§ 1 Verantwortlicher</h2>
             <p><strong>PrivaSort Systems FlexKapG</strong><br>Musterstraße 1, 1010 Wien, Österreich<br>
-                E-Mail: <a href="mailto:datenschutz@privasort.at">datenschutz@privasort.at</a><br>Tel.: +43 1 234 56 78</p>
+                E-Mail: <a href="mailto:datenschutz@privasort.at">datenschutz@privasort.at</a> · Tel.: +43 1 234 56 78</p>
 
             <h2>§ 2 Grundsätze</h2>
             <p>Wir verarbeiten personenbezogene Daten nur soweit nötig, auf Basis einer Rechtsgrundlage nach Art. 6 DSGVO, und speichern sie so kurz wie möglich (Datensparsamkeit, Art. 5 DSGVO).</p>
 
-            <h2>§ 3 Server-Logs beim Website-Aufruf</h2>
-            <p>Beim Seitenaufruf werden technisch notwendige Daten in Server-Logs erfasst: anonymisierte IP-Adresse, Zeitstempel, aufgerufene URL, HTTP-Statuscode, Browser-Typ (User-Agent). <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an IT-Sicherheit). <strong>Speicherdauer:</strong> 7 Tage.</p>
+            <h2>§ 3 Server-Logs</h2>
+            <p>Beim Seitenaufruf: anonymisierte IP, Zeitstempel, URL, HTTP-Status, Browser-Typ. <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO. <strong>Speicherdauer:</strong> 7 Tage.</p>
 
             <h2>§ 4 Kontaktformular</h2>
-            <p>Über das Kontaktformular verarbeitete Daten: Name, E-Mail-Adresse, Betreff, Nachrichteninhalt. <strong>Zweck:</strong> Bearbeitung Ihrer Anfrage. <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) bzw. lit. f (berechtigtes Interesse). <strong>Speicherdauer:</strong> 3 Jahre, danach automatische Löschung.</p>
+            <p>Verarbeitete Daten: Name, E-Mail, Betreff, Nachricht. <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO. <strong>Speicherdauer:</strong> 3 Jahre.</p>
 
             <h2>§ 5 Kaufabwicklung</h2>
-            <p>Bei Kauf: Name, E-Mail, Rechnungsadresse, Zahlungsinformationen. Zahlungsdaten werden ausschließlich über PCI-DSS-zertifizierte Anbieter abgewickelt und nicht auf unseren Servern gespeichert. <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO. <strong>Speicherdauer:</strong> 7 Jahre (§ 212 UGB, steuerrechtliche Aufbewahrungspflicht).</p>
+            <p>Name, E-Mail, Rechnungsadresse, Zahlungsinformationen. Zahlungsdaten nur über PCI-DSS-zertifizierte Anbieter. <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO. <strong>Speicherdauer:</strong> 7 Jahre (§ 212 UGB).</p>
 
             <h2>§ 6 Cookies</h2>
-            <p>Diese Website verwendet ausschließlich technisch notwendige Cookies. Eine Einwilligung ist nach Art. 6 Abs. 1 lit. f DSGVO nicht erforderlich. Wir verwenden <strong>keine</strong> Analyse-, Werbe- oder Social-Media-Cookies.</p>
+            <p>Ausschließlich technisch notwendige Cookies. Keine Analyse-, Werbe- oder Social-Media-Cookies.</p>
             <table aria-label="Cookie-Übersicht">
                 <thead><tr><th scope="col">Cookie</th><th scope="col">Zweck</th><th scope="col">Laufzeit</th></tr></thead>
                 <tbody>
-                <tr><td><strong>ps_session</strong></td><td>Sitzungsverwaltung (Login-Zustand)</td><td>Session</td></tr>
-                <tr><td><strong>ps_consent</strong></td><td>Speicherung Ihrer Cookie-Einwilligung</td><td>1 Jahr</td></tr>
+                <tr><td><strong>ps_session</strong></td><td>Sitzungsverwaltung</td><td>Session</td></tr>
+                <tr><td><strong>ps_consent</strong></td><td>Cookie-Einwilligung speichern</td><td>1 Jahr</td></tr>
                 <tr><td><strong>ps_csrf</strong></td><td>CSRF-Schutz bei Formularen</td><td>Session</td></tr>
                 </tbody>
             </table>
 
             <h2>§ 7 Analyse-Tools</h2>
-            <p>Diese Website verwendet <strong>keine</strong> Analyse-Tools (Google Analytics, Matomo o. ä.), keine Werbenetzwerke und keine Social-Media-Tracking-Pixel. Es werden keinerlei Daten zu Werbezwecken an Dritte weitergegeben.</p>
+            <p>Diese Website verwendet <strong>keine</strong> Analyse-Tools (Google Analytics, Matomo o. ä.) und keine Werbe- oder Tracking-Netzwerke.</p>
 
-            <h2>§ 8 Empfänger personenbezogener Daten</h2>
-            <p>Daten werden nicht verkauft. Weitergabe nur an: Zahlungsdienstleister (Kaufabwicklung, lit. b), Hosting-Anbieter (technischer Betrieb, Art. 28 DSGVO-Auftragsverarbeitung), Behörden (gesetzliche Verpflichtung, lit. c).</p>
+            <h2>§ 8 Empfänger</h2>
+            <p>Keine Datenweitergabe zu Werbezwecken. Weitergabe nur an: Zahlungsdienstleister (Kaufabwicklung), Hosting-Anbieter (Art. 28 DSGVO), Behörden (gesetzliche Pflicht).</p>
 
-            <h2>§ 9 Ihre Rechte</h2>
+            <h2>§ 9 Ihre Rechte (Art. 15–21 DSGVO)</h2>
             <ul>
-                <li><strong>Auskunft</strong> (Art. 15 DSGVO) – welche Daten wir gespeichert haben</li>
-                <li><strong>Berichtigung</strong> (Art. 16) – Korrektur unrichtiger Daten</li>
-                <li><strong>Löschung</strong> (Art. 17) – „Recht auf Vergessenwerden"</li>
-                <li><strong>Einschränkung</strong> (Art. 18) – Verarbeitung einschränken</li>
-                <li><strong>Datenübertragbarkeit</strong> (Art. 20)</li>
-                <li><strong>Widerspruch</strong> (Art. 21) – bei Verarbeitung auf Basis berechtigten Interesses</li>
-                <li><strong>Beschwerde</strong> bei der Österreichischen Datenschutzbehörde (<a href="https://www.dsb.gv.at" target="_blank" rel="noopener">dsb.gv.at</a>)</li>
+                <li><strong>Auskunft</strong> (Art. 15) · <strong>Berichtigung</strong> (Art. 16) · <strong>Löschung</strong> (Art. 17)</li>
+                <li><strong>Einschränkung</strong> (Art. 18) · <strong>Datenübertragbarkeit</strong> (Art. 20) · <strong>Widerspruch</strong> (Art. 21)</li>
+                <li><strong>Beschwerde</strong> bei der Österreichischen Datenschutzbehörde (dsb.gv.at)</li>
             </ul>
-            <p>Kontakt für Datenschutzanfragen: <a href="mailto:datenschutz@privasort.at">datenschutz@privasort.at</a></p>
+            <p>Kontakt: <a href="mailto:datenschutz@privasort.at">datenschutz@privasort.at</a></p>
         </div></div></section>
     </div><!-- /privacy -->
 
@@ -524,46 +519,39 @@
             <div class="container">
                 <div class="tag">Aufgabe 6 – Gewerbe</div>
                 <h1>Impressum</h1>
-                <p>Offenlegung gemäß § 24 Mediengesetz sowie § 5 ECG (E-Commerce-Gesetz), Österreich.</p>
+                <p>Offenlegung gemäß § 24 Mediengesetz sowie § 5 ECG, Österreich.</p>
             </div>
         </div>
         <section class="sec"><div class="container"><div class="prose">
 
             <h2>Medieninhaber &amp; Herausgeber</h2>
-            <p><strong>PrivaSort Systems FlexKapG</strong><br>Musterstraße 1<br>1010 Wien, Österreich</p>
+            <p><strong>PrivaSort Systems FlexKapG</strong><br>Musterstraße 1, 1010 Wien, Österreich</p>
 
             <h2>Firmenbuchdaten</h2>
-            <p>
-                <strong>Rechtsform:</strong> Flexible Kapitalgesellschaft (FlexKapG) gemäß § 1 FlexKapGG<br>
+            <p><strong>Rechtsform:</strong> Flexible Kapitalgesellschaft (FlexKapG) gemäß § 1 FlexKapGG<br>
                 <strong>Firmenbuchnummer:</strong> FN 123456 x (Handelsgericht Wien)<br>
                 <strong>UID-Nummer:</strong> ATU12345678<br>
-                <strong>Gründungsjahr:</strong> 2026
-            </p>
+                <strong>Gründungsjahr:</strong> 2026</p>
 
             <h2>Geschäftsführung</h2>
             <p>Die Gesellschaft wird durch ihre geschäftsführenden Gesellschafter kollektiv vertreten.</p>
 
             <h2>Kontakt</h2>
-            <p>
-                <strong>E-Mail:</strong> <a href="mailto:office@privasort.at">office@privasort.at</a><br>
+            <p><strong>E-Mail:</strong> <a href="mailto:office@privasort.at">office@privasort.at</a><br>
                 <strong>Telefon:</strong> +43 1 234 56 78<br>
-                <strong>Support:</strong> <a href="mailto:support@privasort.at">support@privasort.at</a>
-            </p>
+                <strong>Support:</strong> <a href="mailto:support@privasort.at">support@privasort.at</a></p>
 
             <h2>Unternehmensgegenstand</h2>
-            <p>Entwicklung und Vertrieb von Desktop-Software im Bereich Medienverwaltung und KI-gestützter Bildverarbeitung. NACE-Code: 62.01 (Entwicklung und Produktion von Software).</p>
+            <p>Entwicklung und Vertrieb von Desktop-Software im Bereich Medienverwaltung und KI-gestützter Bildverarbeitung. NACE-Code: 62.01.</p>
 
             <h2>Mitgliedschaft &amp; Aufsichtsbehörde</h2>
-            <p>Mitglied der Wirtschaftskammer Wien, Fachgruppe UBIT. Zuständige Gewerbebehörde gemäß ECG: Magistrat der Stadt Wien.</p>
+            <p>Mitglied der Wirtschaftskammer Wien, Fachgruppe UBIT. Zuständige Gewerbebehörde: Magistrat der Stadt Wien.</p>
 
-            <h2>Grundlegende Richtung des Mediums</h2>
-            <p>Kommerzieller Vertrieb der Software „PrivaSort" sowie Information über Produkt, Unternehmen und rechtliche Rahmenbedingungen.</p>
-
-            <h2>Haftungshinweis</h2>
-            <p>Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für Inhalte externer Links. Für verlinkte Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+            <h2>Grundlegende Richtung</h2>
+            <p>Kommerzieller Vertrieb der Software „PrivaSort" sowie Information über Produkt und rechtliche Rahmenbedingungen.</p>
 
             <h2>Urheberrecht</h2>
-            <p>Alle auf dieser Website veröffentlichten Inhalte sind urheberrechtlich geschützt. © 2025 PrivaSort Systems FlexKapG. Alle Rechte vorbehalten. Reproduktion ohne ausdrückliche schriftliche Genehmigung ist untersagt.</p>
+            <p>© 2025 PrivaSort Systems FlexKapG. Alle Rechte vorbehalten. Reproduktion ohne ausdrückliche schriftliche Genehmigung untersagt.</p>
         </div></div></section>
     </div><!-- /impressum -->
 
@@ -609,7 +597,7 @@
                             <div class="fg">
                                 <label style="display:flex;align-items:flex-start;gap:.5rem;cursor:pointer;font-weight:400">
                                     <input type="checkbox" required aria-required="true" style="width:auto;margin-top:3px;flex-shrink:0">
-                                    <span style="font-size:.87rem;color:var(--mut)">Ich habe die <button type="button" onclick="nav('privacy')" style="background:none;border:none;color:var(--acc);cursor:pointer;text-decoration:underline;padding:0;font-size:inherit">Datenschutzerklärung</button> gelesen und stimme der Verarbeitung meiner Daten zu. <span aria-label="Pflichtfeld">*</span></span>
+                                    <span style="font-size:.87rem;color:var(--mut)">Ich habe die <button type="button" onclick="goTo('privacy')" style="background:none;border:none;color:var(--cyan);cursor:pointer;text-decoration:underline;padding:0;font-size:inherit">Datenschutzerklärung</button> gelesen und stimme zu. <span aria-label="Pflichtfeld">*</span></span>
                                 </label>
                             </div>
                             <button type="submit" class="btn btn-p" style="width:100%;justify-content:center;padding:.9rem;font-size:1rem">
@@ -630,11 +618,11 @@
                             </div>
                             <div class="card" style="padding:1.5rem">
                                 <h3 style="margin-bottom:.4rem">📍 Adresse</h3>
-                                <p style="margin-bottom:0">PrivaSort Systems FlexKapG<br>Musterstraße 1<br>1010 Wien, Österreich</p>
+                                <p style="margin-bottom:0">PrivaSort Systems FlexKapG<br>Musterstraße 1, 1010 Wien</p>
                             </div>
                             <div class="card" style="padding:1.5rem">
                                 <h3 style="margin-bottom:.4rem">⏰ Geschäftszeiten</h3>
-                                <p style="margin-bottom:0">Mo–Fr: 09:00–17:00 Uhr (MEZ/MESZ)<br>Samstag &amp; Sonntag: geschlossen</p>
+                                <p style="margin-bottom:0">Mo–Fr: 09:00–17:00 Uhr (MEZ/MESZ)</p>
                             </div>
                         </div>
                     </div>
@@ -654,80 +642,81 @@
             </div>
         </div>
         <section class="sec"><div class="container"><div class="prose">
-            <div class="notice ng"><strong>Konformitätsstatus:</strong> Diese Website strebt die vollständige Konformität mit den Web Content Accessibility Guidelines (WCAG) 2.2, Konformitätsstufe AA an.</div>
+            <div class="notice ng"><strong>Konformitätsstatus:</strong> Diese Website strebt vollständige Konformität mit WCAG 2.2, Stufe AA an.</div>
 
             <h2>1. Geltungsbereich</h2>
-            <p>Diese Erklärung gilt für die Website <strong>privasort.at</strong> (PrivaSort Systems FlexKapG, Wien, Österreich).</p>
+            <p>Diese Erklärung gilt für <strong>privasort.at</strong> (PrivaSort Systems FlexKapG, Wien).</p>
 
             <h2>2. Umgesetzte Maßnahmen</h2>
             <ul>
-                <li><strong>Tastaturnavigation:</strong> Alle interaktiven Elemente sind ohne Maus erreichbar und bedienbar.</li>
-                <li><strong>Skip-Link:</strong> Ein „Zum Hauptinhalt springen"-Link ist am Seitenanfang vorhanden.</li>
-                <li><strong>Fokusindikator:</strong> Fokussierte Elemente haben einen deutlich sichtbaren Fokusrahmen (3px, Kontrastfarbe).</li>
-                <li><strong>Farbkontrast:</strong> Alle Text-Hintergrund-Kombinationen erfüllen mindestens 4,5:1 (Normaltext) bzw. 3:1 (Großtext) gemäß WCAG 1.4.3 / 1.4.6.</li>
-                <li><strong>Alternativtexte:</strong> Alle informativen Grafiken haben <code>alt</code>-Texte oder <code>aria-label</code>. Dekorative Elemente sind mit <code>aria-hidden="true"</code> markiert.</li>
-                <li><strong>Semantisches HTML5:</strong> Korrekte Landmark-Regionen (<code>header</code>, <code>nav</code>, <code>main</code>, <code>footer</code>), Überschriftenhierarchie (h1→h2→h3) und semantische Listenelemente.</li>
-                <li><strong>ARIA:</strong> Interaktive Elemente tragen passende <code>role</code>, <code>aria-label</code>, <code>aria-required</code> und <code>aria-live</code>-Attribute.</li>
-                <li><strong>Sprachdeklaration:</strong> <code>lang="de"</code> im HTML-Element gesetzt.</li>
-                <li><strong>Responsive Design:</strong> Optimiert für Viewport-Breiten von 320 px bis 2560 px.</li>
-                <li><strong>Keine reinen Farbinformationen:</strong> Informationen werden nicht ausschließlich durch Farbe vermittelt.</li>
-                <li><strong>Formular-Labels:</strong> Alle Eingabefelder haben explizit verknüpfte <code>&lt;label&gt;</code>-Elemente.</li>
+                <li><strong>Tastaturnavigation:</strong> Alle interaktiven Elemente ohne Maus erreichbar.</li>
+                <li><strong>Skip-Link:</strong> „Zum Hauptinhalt springen" am Seitenanfang vorhanden.</li>
+                <li><strong>Fokusindikator:</strong> 3px-Fokusrahmen in Kontrastfarbe.</li>
+                <li><strong>Farbkontrast:</strong> ≥ 4,5:1 (Normaltext) / ≥ 3:1 (Großtext) gemäß WCAG 1.4.3.</li>
+                <li><strong>Alternativtexte:</strong> Alle informativen Grafiken mit <code>aria-label</code>; dekorative mit <code>aria-hidden="true"</code>.</li>
+                <li><strong>Semantisches HTML5:</strong> Korrekte Landmarks, Überschriftenhierarchie h1→h2→h3.</li>
+                <li><strong>ARIA:</strong> <code>role</code>, <code>aria-label</code>, <code>aria-required</code>, <code>aria-live</code> an allen relevanten Elementen.</li>
+                <li><strong>Sprachdeklaration:</strong> <code>lang="de"</code> gesetzt.</li>
+                <li><strong>Responsive:</strong> Optimiert für 320 px bis 2560 px Breite.</li>
+                <li><strong>Formular-Labels:</strong> Alle Felder mit explizit verknüpften <code>&lt;label&gt;</code>-Elementen.</li>
             </ul>
 
             <h2>3. Bekannte Einschränkungen</h2>
-            <p>Zum Zeitpunkt dieser Erklärung sind keine bekannten Verstöße gegen WCAG 2.2 AA dokumentiert. Bei Feststellung von Barrieren bitten wir um Rückmeldung.</p>
+            <p>Keine bekannten WCAG 2.2 AA-Verstöße dokumentiert. Bei Feststellung von Barrieren bitten wir um Rückmeldung.</p>
 
-            <h2>4. Feedback und Kontakt</h2>
-            <p>Bei Zugänglichkeitsproblemen oder Unterstützungsbedarf wenden Sie sich bitte an:<br>
-                <strong>E-Mail:</strong> <a href="mailto:accessibility@privasort.at">accessibility@privasort.at</a> (Antwort innerhalb von 5 Werktagen)</p>
+            <h2>4. Feedback</h2>
+            <p><a href="mailto:accessibility@privasort.at">accessibility@privasort.at</a> – Antwort innerhalb von 5 Werktagen.</p>
 
-            <h2>5. Durchsetzungsverfahren</h2>
-            <p>Bei nicht zufriedenstellender Bearbeitung können Sie sich an die <strong>Österreichische Behindertenanwaltschaft</strong> wenden: <a href="https://www.behindertenanwaltschaft.gv.at" target="_blank" rel="noopener">behindertenanwaltschaft.gv.at</a></p>
+            <h2>5. Durchsetzung</h2>
+            <p>Beschwerdemöglichkeit bei der Österreichischen Behindertenanwaltschaft (behindertenanwaltschaft.gv.at).</p>
 
             <h2>6. Erstellungsdatum</h2>
-            <p>Erstellt und zuletzt geprüft: <strong>15. Januar 2025</strong></p>
+            <p>Erstellt und geprüft: <strong>15. Januar 2025</strong></p>
         </div></div></section>
     </div><!-- /accessibility -->
 
-</main><!-- /main -->
+</main>
 
-<!-- Footer -->
+<!-- ══════════════ FOOTER ══════════════ -->
 <footer role="contentinfo">
     <div class="container">
         <div class="foot-grid">
-            <div class="foot-col">
-                <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.9rem">
-                    <svg width="22" height="22" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 2L4 7v7c0 5.5 4.3 10.7 10 12 5.7-1.3 10-6.5 10-12V7L14 2z" fill="#4f8ef7"/><path d="M10 14l3 3 5-5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <strong>PrivaSort</strong>
-                </div>
-                <p style="font-size:.84rem">Lokale KI-Medienverwaltung.<br>Kein Cloud. Kein Abo. Volle Kontrolle.</p>
-                <p style="font-size:.78rem;margin-top:.4rem">© 2025 PrivaSort Systems FlexKapG<br>Wien, Österreich</p>
+            <div class="foot-brand foot-col">
+                <button class="logo-btn" onclick="goTo('home')" style="margin-bottom:.7rem" aria-label="PrivaSort Startseite">
+                    <img src="logo.png" alt="PrivaSort Logo" class="logo-img" style="width:34px;height:auto;">
+                    <strong style="font-size:1.1rem">Priva<span class="logo-acc">Sort</span></strong>
+                </button>
+                <p>Lokale KI-Medienverwaltung.<br>Kein Cloud. Kein Abo. Volle Kontrolle.</p>
+                <p style="font-size:.78rem;margin-top:.5rem">© 2025 PrivaSort Systems FlexKapG<br>Wien, Österreich</p>
             </div>
+
             <div class="foot-col">
                 <h4>Produkt</h4>
                 <ul>
-                    <li><a href="#" onclick="nav('home');scrollTo('features');return false">Funktionen</a></li>
-                    <li><a href="#" onclick="nav('home');scrollTo('pricing');return false">Preise</a></li>
-                    <li><a href="#" onclick="nav('license');return false">Lizenz (EULA)</a></li>
+                    <li><a href="#" onclick="goTo('home');jumpTo('features');return false;">Funktionen</a></li>
+                    <li><a href="#" onclick="goTo('home');jumpTo('pricing');return false;">Preise</a></li>
+                    <li><a href="#" onclick="goTo('license');return false;">Lizenz (EULA)</a></li>
                 </ul>
             </div>
+
             <div class="foot-col">
                 <h4>Unternehmen</h4>
                 <ul>
-                    <li><a href="#" onclick="nav('about');return false">Über uns</a></li>
-                    <li><a href="#" onclick="nav('contact');return false">Kontakt</a></li>
-                    <li><a href="#" onclick="nav('impressum');return false">Impressum</a></li>
+                    <li><a href="#" onclick="goTo('about');return false;">Über uns</a></li>
+                    <li><a href="#" onclick="goTo('contact');return false;">Kontakt</a></li>
+                    <li><a href="#" onclick="goTo('impressum');return false;">Impressum</a></li>
                 </ul>
             </div>
+
             <div class="foot-col">
                 <h4>Rechtliches</h4>
                 <ul>
-                    <li><a href="#" onclick="nav('privacy');return false">Datenschutz</a></li>
-                    <li><a href="#" onclick="nav('license');return false">EULA</a></li>
-                    <li><a href="#" onclick="nav('accessibility');return false">Barrierefreiheit</a></li>
+                    <li><a href="#" onclick="goTo('privacy');return false;">Datenschutz</a></li>
+                    <li><a href="#" onclick="goTo('accessibility');return false;">Barrierefreiheit</a></li>
                 </ul>
             </div>
         </div>
+
         <div class="foot-bot">
             <span>© 2025 PrivaSort Systems FlexKapG · FN 123456 x · Wien, Österreich</span>
             <span>Alle Rechte vorbehalten · WCAG 2.2 AA</span>
@@ -736,28 +725,50 @@
 </footer>
 
 <script>
-    function nav(name){
+    const PAGES = ['home','about','license','privacy','impressum','contact','accessibility'];
+
+    function goTo(name, anchor){
+        if(!PAGES.includes(name)) return;
         document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-        const el=document.getElementById('page-'+name);
-        if(el){el.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+        const pg = document.getElementById('page-'+name);
+        if(pg) pg.classList.add('active');
+
+        // update nav active state
+        document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+        const navEl = document.getElementById('nav-'+name);
+        if(navEl) navEl.classList.add('active');
+
+        window.scrollTo({top:0,behavior:'smooth'});
+        if(anchor) jumpTo(anchor);
     }
-    function scrollTo(id){
+
+    function jumpTo(id){
         setTimeout(()=>{
-            const el=document.getElementById(id);
-            if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
-        },120);
+            const el = document.getElementById(id);
+            if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        }, 160);
     }
+
     function closeCookie(){
-        const b=document.getElementById('cookie');
-        if(b)b.style.display='none';
-        try{localStorage.setItem('ps_consent','1');}catch(e){}
+        const b = document.getElementById('cookie');
+        if(b) b.style.display='none';
+        try{ localStorage.setItem('ps_consent','1'); }catch(e){}
     }
+
     function submitContact(e){
         e.preventDefault();
+        const n = document.getElementById('cn').value.trim();
+        const em = document.getElementById('ce').value.trim();
+        const msg = document.getElementById('cm').value.trim();
+        if(!n||!em||!msg){
+            alert('⚠️ Bitte füllen Sie alle Pflichtfelder aus (Name, E-Mail, Nachricht).');
+            return;
+        }
         document.getElementById('cform').style.display='none';
         document.getElementById('csuccess').style.display='block';
     }
-    try{if(localStorage.getItem('ps_consent'))closeCookie();}catch(e){}
+
+    try{ if(localStorage.getItem('ps_consent')) closeCookie(); }catch(e){}
 </script>
 </body>
 </html>
